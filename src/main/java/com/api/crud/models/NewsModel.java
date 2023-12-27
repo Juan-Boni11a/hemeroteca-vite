@@ -3,86 +3,88 @@ package com.api.crud.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Set;
 
 @Entity
-@Table(name="news")
-
+@Table(name = "news")
 public class NewsModel {
     @Id
     @Getter
     @Setter
-    @Column(name="id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Getter
     @Setter
-    @JoinColumn(name = "dateRegister")
+    @Column(name = "dateRegister")
     private LocalDate dateRegister;
 
     @Getter
     @Setter
-    @JoinColumn(name = "nameResp")
+    @Column(name = "nameResp")
     private String nameResp;
 
     @Getter
     @Setter
-    @JoinColumn(name = "emitNoticia")
+    @Column(name = "emitNoticia")
     private LocalDate emitNoticia;
 
     @Getter
     @Setter
-    @JoinColumn(name = "seccion")
+    @Column(name = "seccion")
     private String seccion;
 
     @Getter
     @Setter
-    @JoinColumn(name = "numPage")
+    @Column(name = "numPage")
     private int numPage;
 
     @Getter
     @Setter
-    @JoinColumn(name = "sectorNoti")
+    @Column(name = "sectorNoti")
     private String sectorNoti;
 
     @Getter
     @Setter
-    @JoinColumn(name = "subsector")
+    @Column(name = "subsector")
     private String subsector;
 
     @Getter
     @Setter
-    @JoinColumn(name = "tipoInfo")
+    @Column(name = "tipoInfo")
     private String tipoInfo;
 
     @Getter
     @Setter
-    @JoinColumn(name = "medioComunicacion")
+    @Column(name = "medioComunicacion")
     private String medioComunicacion;
 
     @Getter
     @Setter
-    @JoinColumn(name = "fuente")
+    @Column(name = "fuente")
     private String fuente;
 
     @Getter
     @Setter
-    @JoinColumn(name = "tendencia")
+    @Column(name = "tendencia")
     private String tendencia;
 
     @Getter
     @Setter
-    @JoinColumn(name = "resumen", columnDefinition = "TEXT")
+    @Column(name = "resumen", columnDefinition = "TEXT")
     private String resumen;
 
     @Getter
     @Setter
-    @JoinColumn(name = "comentario", columnDefinition = "TEXT")
+    @Column(name = "comentario", columnDefinition = "TEXT")
     private String comentario;
 
-
-
+    // Agrega la relación uno a muchos con OpinionModel
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "news_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OpinionModel> opinions;
 }

@@ -1,11 +1,12 @@
 package com.api.crud.controllers;
 import com.api.crud.models.NewsModel;
+import com.api.crud.models.OpinionModel;
 import com.api.crud.services.newsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.Set;
 
 
 @RestController
