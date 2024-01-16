@@ -22,6 +22,12 @@ public class NewsController {
         return newsService.getAll();
     }
 
+
+    @GetMapping("/countByTendence")
+    public List<Object[]> countByTendence(){
+        return newsService.countByTendence();
+    }
+
     @PostMapping
     public NewsModel create(@RequestBody NewsModel newsRequest){
         return newsService.createOrUpdate(newsRequest);

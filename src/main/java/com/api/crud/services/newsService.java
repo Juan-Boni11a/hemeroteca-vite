@@ -26,5 +26,7 @@ public class newsService {
         maintenanceRequestRepository.deleteById(id);
     }
 
-
+    public List<Object[]> countByTendence() {
+        return maintenanceRequestRepository.countByTendence();
+    }
 }
