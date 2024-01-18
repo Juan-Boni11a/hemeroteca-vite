@@ -1,5 +1,6 @@
 package com.api.crud.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -82,7 +83,13 @@ public class NewsModel {
     @Column(name = "comentario", columnDefinition = "TEXT")
     private String comentario;
 
+    @Getter
+    @Setter
+    @Column(name = "image")
+    private String image;
+
     // Agrega la relación uno a muchos con OpinionModel
+    @JsonIgnore
     @Getter
     @Setter
     @OneToMany(mappedBy = "news_id", cascade = CascadeType.ALL, orphanRemoval = true)

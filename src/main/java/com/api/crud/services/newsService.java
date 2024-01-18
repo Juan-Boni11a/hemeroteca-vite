@@ -2,6 +2,8 @@ package com.api.crud.services;
 import com.api.crud.models.NewsModel;
 import com.api.crud.models.OpinionModel;
 import com.api.crud.repository.NewsRepository;
+import com.api.crud.repository.OpinionRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
